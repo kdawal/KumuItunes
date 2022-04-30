@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 
@@ -28,6 +29,8 @@ data class Track(
     val releaseDate: String?,
     @Json(name = "shortDescription")
     val shortDescription: String?,
+    @Json(name = "longDescription")
+    val longDescription: String?,
     @Json(name = "trackCensoredName")
     val trackCensoredName: String?,
     @Json(name = "trackCount")
@@ -49,4 +52,4 @@ data class Track(
     val trackPrice: Double?,
     @Json(name = "trackTimeMillis")
     val trackTimeMillis: Int?
-)
+): Serializable
