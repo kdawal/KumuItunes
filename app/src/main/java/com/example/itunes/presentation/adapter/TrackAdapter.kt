@@ -13,7 +13,7 @@ import com.example.itunes.databinding.RowTrackItemBinding
  * Handles data that will be displayed on the RecyclerView.
  */
 
-class TrackAdapter(): RecyclerView.Adapter<TrackAdapter.TrackViewHolder>() {
+class TrackAdapter: RecyclerView.Adapter<TrackAdapter.TrackViewHolder>() {
 
     private val trackList = ArrayList<Track>()
 

@@ -6,6 +6,9 @@ import com.example.itunes.data.model.Track
 import com.example.itunes.data.repository.datasource.TrackRemoteDataSource
 import retrofit2.Response
 
+/**
+ * Implements remote datasource for retrofit api calls
+ */
 class TrackRemoteDatasourceImpl(
     private val trackAPIService: TrackAPIService
 ): TrackRemoteDataSource {

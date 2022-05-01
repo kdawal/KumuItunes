@@ -16,6 +16,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+ * Dependency injection for Retrofit and APIService class
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class NetModule {

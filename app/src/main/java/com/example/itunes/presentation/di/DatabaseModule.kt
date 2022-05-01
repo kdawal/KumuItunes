@@ -2,6 +2,7 @@ package com.example.itunes.presentation.di
 import android.app.Application
 import androidx.room.Room
 import com.example.itunes.data.db.DateAccessDao
+import com.example.itunes.data.db.ScreenDao
 import com.example.itunes.data.db.TrackDB
 import com.example.itunes.data.db.TrackDao
 import dagger.Module
@@ -10,6 +11,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Dependency injection for Room Database including DAO
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class DatabaseModule {
@@ -27,4 +31,8 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideDateAccessDao(trackDB: TrackDB): DateAccessDao = trackDB.getDateAccessDao()
+
+    @Singleton
+    @Provides
+    fun provideScreenDao(trackDB: TrackDB): ScreenDao = trackDB.getScreenDao()
 }

@@ -8,6 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Dependency injection for use cases
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class UseCaseModule {
@@ -22,7 +25,7 @@ class UseCaseModule {
     @Provides
     fun provideGetSavedTrackUseCase(
         trackRepository: TrackRepository
-    ): GetSavedTracksUseCase = GetSavedTracksUseCase(trackRepository)
+    ): GetSavedTrackUseCase = GetSavedTrackUseCase(trackRepository)
 
     @Singleton
     @Provides
@@ -36,9 +39,22 @@ class UseCaseModule {
         trackRepository: TrackRepository
     ): SaveDateUseCase = SaveDateUseCase(trackRepository)
 
+
     @Singleton
     @Provides
-    fun provideUpdateSaveDateUseCase(
+    fun provideSaveScreenUseCase(
         trackRepository: TrackRepository
-    ): UpdateSaveDateUseCase = UpdateSaveDateUseCase(trackRepository)
+    ): SaveScreenUseCase = SaveScreenUseCase(trackRepository)
+
+    @Singleton
+    @Provides
+    fun provideGetSavedScreenUseCase(
+        trackRepository: TrackRepository
+    ): GetSavedScreenUseCase = GetSavedScreenUseCase(trackRepository)
+
+    @Singleton
+    @Provides
+    fun provideSaveTrackUseCase(
+        trackRepository: TrackRepository
+    ): SaveTracksUseCase = SaveTracksUseCase(trackRepository)
 }

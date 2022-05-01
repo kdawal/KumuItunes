@@ -1,26 +1,25 @@
 package com.example.itunes.data.db
 import androidx.room.*
 import com.example.itunes.data.model.Track
-import kotlinx.coroutines.flow.Flow
 
 /**
- * Data Access Object where you can write your SQLite query
+ * Data Access Object where you can write your SQLite query for Track table
  */
 @Dao
 interface TrackDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insertTrack(tracks: List<Track>)
+  suspend fun insertTrack(tracks: Track)
 
   @Query("SELECT * FROM track")
-  fun getAllTracks(): Flow<List<Track>>
+  suspend fun getAllTracks(): List<Track>
 
   @Query("DELETE FROM track")
   suspend fun deleteTrack()
 
 
   @Transaction
-  suspend fun saveTrack(track: List<Track>){
+  suspend fun saveTrack(track: Track){
     deleteTrack()
     insertTrack(track)
   }

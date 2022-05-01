@@ -2,8 +2,11 @@ package com.example.itunes.domain.usecase
 
 import com.example.itunes.domain.repository.TrackRepository
 
-class GetSavedTracksUseCase(
+/**
+ * Use case needed for retrieving saved track
+ */
+class GetSavedTrackUseCase(
     private val trackRepository: TrackRepository
 ) {
-    fun execute() = trackRepository.getSaveTracks()
+    suspend fun execute() = trackRepository.getSavedTrack()
 }

@@ -5,10 +5,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import java.io.Serializable
 
+/**
+* Data model for Track table
+*/
 @JsonClass(generateAdapter = true)
-
 @Entity(tableName = "track")
 data class Track(
     @Json(name = "artistName")
@@ -52,4 +53,4 @@ data class Track(
     val trackPrice: Double?,
     @Json(name = "trackTimeMillis")
     val trackTimeMillis: Int?
-): Serializable
+)

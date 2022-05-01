@@ -1,11 +1,12 @@
 package com.example.itunes.domain.usecase
 
 import com.example.itunes.domain.repository.TrackRepository
+
 /**
- * Use case needed for retrieving track list from api
+ * Use case needed for retrieving saved screen
  */
-class GetTracksUseCase(
+class GetSavedScreenUseCase(
     private val trackRepository: TrackRepository
 ) {
-    suspend fun execute() = trackRepository.getTracks()
+    suspend fun execute() = trackRepository.getSavedScreen()
 }

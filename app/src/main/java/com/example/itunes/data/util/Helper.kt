@@ -1,11 +1,12 @@
 package com.example.itunes.data.util
 
 import com.example.itunes.data.model.BaseResponse
-import com.squareup.moshi.Moshi
 import retrofit2.Response
 
-suspend inline fun <reified T> evaluateCall(
-    moshi: Moshi,
+/**
+ * Handles api request for better error handling
+ */
+inline fun <reified T> evaluateCall(
     call: () -> Response<BaseResponse<T>>
 ): Resource<T> {
     try {
@@ -19,7 +20,7 @@ suspend inline fun <reified T> evaluateCall(
                 return Resource.Error(response.message() ?: "Server Error")
             }
             return if (errorBody != null) {
-                Resource.Error("$errorBody")
+                Resource.Error(errorBody.toString())
             } else {
                 Resource.Error(response.message())
             }

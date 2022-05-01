@@ -11,6 +11,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Dependency injection for repository
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
@@ -18,8 +21,7 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun provideTrackRepository(
-        moshi: Moshi,
         trackLocalDataSource: TrackLocalDataSource,
         trackRemoteDataSource: TrackRemoteDataSource
-    ): TrackRepository = TrackRepositoryImpl(moshi, trackRemoteDataSource, trackLocalDataSource)
+    ): TrackRepository = TrackRepositoryImpl(trackRemoteDataSource, trackLocalDataSource)
 }

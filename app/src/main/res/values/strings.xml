@@ -8,4 +8,5 @@
     <string name="track_name">Track Name</string>
     <string name="date_released">Date Released</string>
     <string name="rating">Rating</string>
+    <string name="date_access">Last Accessed Date: %1$s</string>
 </resources>
